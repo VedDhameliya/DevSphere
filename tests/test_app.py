@@ -1,7 +1,9 @@
-from app import app
+
+from app import create_app
 
 
-def test_homepage():
+def test_home_page():
+    app = create_app()
     client = app.test_client()
 
     response = client.get("/")
