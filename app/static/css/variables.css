@@ -1,0 +1,41 @@
+
+:root {
+    /* DevSphere brand colors */
+    --color-bg: #111827;
+    --color-surface: #1F2937;
+    --color-surface-hover: #374151;
+
+    --color-primary: #7C3AED;
+    --color-primary-hover: #6D28D9;
+    --color-accent: #A78BFA;
+
+    /* Text colors */
+    --color-text: #F9FAFB;
+    --color-text-muted: #9CA3AF;
+    --color-border: #374151;
+
+    /* Status colors */
+    --color-success: #22C55E;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+
+    /* Typography */
+    --font-family: Arial, Helvetica, sans-serif;
+    --font-size-base: 16px;
+
+    /* Layout and spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Reusable shapes */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* Shadows and transitions */
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --transition-fast: 0.2s ease;
+}
