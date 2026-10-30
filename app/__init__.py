@@ -4,6 +4,7 @@ from app.extensions import db, login_manager, migrate
 
 
 def create_app():
+    
     app = Flask(__name__)
 
     app.config["SECRET_KEY"] = "dev-secret-key"
@@ -27,5 +28,8 @@ def create_app():
     @app.route("/")
     def home():
         return render_template("home.html")
+
+        from app.routes.auth import auth_bp
+        app.register_blueprint(auth_bp)
 
     return app
