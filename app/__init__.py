@@ -16,6 +16,20 @@ def create_app():
 
     db.init_app(app)
     login_manager.init_app(app)
+
+    migrate.init_app(app, db)
+
+    # Register authentication routes (Team 1)
+    from app.routes.auth import auth_bp
+    app.register_blueprint(auth_bp)
+
+    # Register project management routes (Team 2)
+    from app.routes.projects import projects_bp
+    app.register_blueprint(projects_bp)
+
+    # Configure login redirect
+    login_manager.login_view = "auth.login"
+
     from app.models.user import User
 
     @login_manager.user_loader
