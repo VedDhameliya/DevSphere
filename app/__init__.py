@@ -1,5 +1,3 @@
-from app import models
-
 from flask import Flask, render_template
 
 from app.extensions import db, login_manager, migrate
