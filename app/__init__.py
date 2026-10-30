@@ -20,11 +20,19 @@ def create_app():
     def load_user(user_id):
         return db.session.get(User, int(user_id))
 
+    # Register authentication routes (Team 1)
+    from app.routes.auth import auth_bp
+    app.register_blueprint(auth_bp)
+
+    # Register project management routes (Team 2)
+    from app.routes.projects import projects_bp
+    app.register_blueprint(projects_bp)
+
+    # Configure login redirect
+    login_manager.login_view = "auth.login"
+
     @app.route("/")
     def home():
         return render_template("home.html")
-
-    from app.routes.auth import auth_bp
-    app.register_blueprint(auth_bp)
 
     return app
