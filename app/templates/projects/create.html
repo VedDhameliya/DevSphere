@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project | DevSphere</title>
+</head>
+<body>
+
+    <h1>Create New Project</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <div>
+            <label for="name">Project Name:</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter project name"
+                required
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="description">Project Description:</label>
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Describe your project"
+                rows="5"
+            ></textarea>
+        </div>
+
+        <br>
+
+        <button type="submit">Create Project</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('projects.project_list') }}">
+        Back to My Projects
+    </a>
+
+</body>
+</html>

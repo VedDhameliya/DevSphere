@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | DevSphere</title>
+</head>
+<body>
+
+    <h1>My Projects</h1>
+    <a href="{{ url_for('projects.create_project') }}">
+        <button type="button">+ Create New Project</button>
+    </a>
+   {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <p>Welcome to your project workspace!</p>
+
+    <hr>
+
+    {% if projects %}
+
+        {% for project in projects %}
+
+            <div>
+                <h2>{{ project.name }}</h2>
+
+                <p>
+                    {{ project.description or "No description available." }}
+                </p>
+
+                <hr>
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>You haven't created any projects yet.</p>
+
+    {% endif %}
+
+</body>
+</html>
