@@ -1,3 +1,4 @@
+
 from app.extensions import db
 
 
@@ -36,8 +37,8 @@ class ProjectMembership(db.Model):
         "User",
         backref="project_memberships"
     )
+
     project = db.relationship(
         "Project",
         backref="memberships"
     )
-        

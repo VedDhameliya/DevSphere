@@ -14,16 +14,26 @@ class Project(db.Model):
         db.ForeignKey("users.id"),
         nullable=False
     )
+
+    memberships = db.relationship(
+        "ProjectMembership",
+        backref="project",
+        lazy=True,
+        cascade="all, delete-orphan"
+    )
+
     teams = db.relationship(
         "Team",
         backref="project",
         lazy=True
     )
+
     tasks = db.relationship(
         "Task",
         backref="project",
         lazy=True
     )
+
     messages = db.relationship(
         "Message",
         backref="project",
