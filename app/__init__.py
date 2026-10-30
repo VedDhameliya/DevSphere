@@ -28,6 +28,10 @@ def create_app():
     from app.routes.projects import projects_bp
     app.register_blueprint(projects_bp)
 
+    # Register team management routes (Team 2)
+    from app.routes.teams import teams_bp
+    app.register_blueprint(teams_bp)
+
     # Configure login redirect
     login_manager.login_view = "auth.login"
 
