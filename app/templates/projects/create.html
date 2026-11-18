@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+
+{% block title %}Create Project | DevSphere{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1 class="page-title">Create a New Project</h1>
+    <p class="muted">Start something great with your team.</p>
+</section>
+
+<section class="card">
+    <form method="POST">
+        <div class="form-group">
+            <label class="form-label" for="name">Project Name</label>
+            <input
+                class="form-control"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter project name"
+                maxlength="120"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="description">Description</label>
+            <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="5"
+                placeholder="Describe your project..."
+            ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Create Project
+        </button>
+
+        <a href="{{ url_for('projects.list_projects') }}" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+</section>
+{% endblock %}

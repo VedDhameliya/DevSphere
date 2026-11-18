@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Teams | DevSphere{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1 class="page-title">Teams in {{ project.name }}</h1>
+    <p class="muted">Organize your project members into teams.</p>
+
+    <a href="{{ url_for('teams.create_team', project_id=project.id) }}"
+       class="btn btn-primary">
+        + Create Team
+    </a>
+</section>
+
+{% if teams %}
+    <div class="project-grid">
+        {% for team in teams %}
+            <article class="card">
+                <h2>{{ team.name }}</h2>
+                <p class="muted">
+                    {{ team.description or "No description provided." }}
+                </p>
+            </article>
+        {% endfor %}
+    </div>
+{% else %}
+    <section class="card">
+        <h2>No teams yet</h2>
+        <p class="muted">Create your first team for this project!</p>
+        <a href="{{ url_for('teams.create_team', project_id=project.id) }}"
+           class="btn btn-primary">
+            Create Your First Team
+        </a>
+    </section>
+{% endif %}
+
+<a href="{{ url_for('projects.list_projects') }}" class="btn btn-secondary">
+    Back to Projects
+</a>
+{% endblock %}
